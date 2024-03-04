@@ -1,0 +1,52 @@
+# Display First Name and Last Name of the customers who have done shopping for more than $5000:
+SELECT Cus_First, Cus_Last
+FROM P_Customer
+WHERE Cus_ID IN (
+    SELECT Cus_ID
+    FROM P_Customer_PurchaseRecord
+    WHERE TotalPrice > 5000
+);
+
+# Determine the Product_name, Receipt_ID, TotalPrice paid, Cus_ID having the maximum purchase records:
+SELECT r.Reciept_ID, r.Cus_ID, r.TotalPrice, p.Product_Name
+FROM P_Customer_PurchaseRecord r
+JOIN P_Product p ON r.Product_ID = p.Product_ID
+WHERE r.Quantity_Purchase = (
+    SELECT MAX(Quantity_Purchase)
+    FROM P_Customer_PurchaseRecord
+);
+
+# Determine the products coming from the Distribution center name starting with ‘C’:
+SELECT Product_Name
+FROM P_Product
+WHERE Dep_ID IN (
+    SELECT Dep_ID
+    FROM P_Department
+    WHERE Store_ID IN (
+        SELECT Store_ID
+        FROM P_Store
+        WHERE Center_ID IN (
+            SELECT Center_ID
+            FROM P_DistributionCenter
+            WHERE Center_Name LIKE 'C%'
+        )
+    )
+);
+
+# Display the list of all products that platinum customers bought along with their first name, last name, and phone number:
+SELECT p.Product_ID, p.Product_Name, c.Cus_First, c.Cus_Last, c.Cus_Phone
+FROM P_Product p
+JOIN P_Customer_PurchaseRecord pu ON p.Product_ID = pu.Product_ID
+JOIN P_Customer c ON pu.Cus_ID = c.Cus_ID
+JOIN P_CustomerLoyalty l ON c.Cus_ID = l.Cus_ID
+WHERE l.Membership = 'Platinum';
+
+# Display the list of Cus_First, Cus_Last who paid the highest payments:
+SELECT c.Cus_First, c.Cus_Last, pr.TotalPrice
+FROM P_Customer c
+JOIN P_Customer_PurchaseRecord pr ON c.Cus_ID = pr.Cus_ID
+JOIN P_CustomerPayment p ON p.Reciept_ID = pr.Reciept_ID
+WHERE pr.TotalPrice IN (
+    SELECT MAX(TotalPrice)
+    FROM P_Customer_PurchaseRecord
+);
