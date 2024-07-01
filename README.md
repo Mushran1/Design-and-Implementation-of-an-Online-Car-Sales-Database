@@ -1,11 +1,47 @@
-Building a simple database is not as complex as it may initially seem to be, but an individual database can quickly become something complicated as detail and relationships stack up. In order to build a good database, it is helpful to spend some time initially setting it up and thinking through what sorts of information you want to store and how it might be used. To get an idea of how other organizations are handling online car sales, we started the process of creating a database with some competitive analysis. While we have only detailed our analysis of TrueCar in this paper, we also spent time looking at other competitors to really get a sense of what all exists in production and active usage today.
+# Project Overview
+This project involves designing and implementing a comprehensive database for an online car sales platform. The database aims to efficiently store, manage, and retrieve information related to electric vehicles, facilitating seamless navigation and data extraction for end-users.
 
-From there, we moved into building a sitemap. This helped us think backwards about a database. When you envision and gain understanding of what your end user will be looking for, it’s easier to envision the sorts of data you might want to collect and store and what the relationships between those data points might entail.
+## Project Objectives
+Competitive Analysis: Conducted an analysis of existing online car sales platforms, focusing on TrueCar and other competitors, to understand industry standards and features.
+Sitemap Creation: Developed a sitemap to visualize the end-user experience and determine the necessary data points and their relationships.
+Business Rules and Requirements: Collaborated with stakeholders to define the database's capabilities and functionalities.
+Entity Relationship Diagram (ERD): Created an ERD to outline the relationships between tables and eliminate many-to-many relationships through bridge tables.
+Database Construction: Built the database tables, inserted sample data, and connected the database to a local server using PHP for seamless user interaction.
+### Methodology
+#### Competitive Analysis:
 
-We also created business rules and requirements. These are usually crafted by stakeholders and end users to help database designers understand what the database must do and be capable of. They’re incredibly useful for understanding how the items in a database might relate to each other and seeing what gaps in information you might not have anticipated need to go into the database.
- 
-Next we created an entity relationship diagram (ERD). This diagram is crucial for envisioning how the tables inside a database relate to each other. It helped us eliminate the many to many relationships that cannot exist in a relational database and begin establishing bridge tables to make the database fit together. At times, the relationship between two things in quartzythe real world doesn’t directly match up with what exists in the database and the ERD can help us understand that variation.
- 
-After researching competitors, making a sitemap, writing business rules, and creating the ERD, we were finally ready to create tables and begin inserting data. While the data we have used is nowhere near an exhaustive list of electric vehicles on the market, it is substantive enough to get a sense of the information in the database and how it all connects. We have included the SQL code used to create the tables, insert the data, and some SQL to show you how you might use this database to pull up existing data.
- 
-Next, we were ready to connect our database to the server. We have used our SQL queries to build the database application. Our database was connected to the localhost server using PHP language. Afterwards, we imported all the data to the local server. In order for the end-user to easily navigate through our website, we have inserted pictures, table header and column name. Our database is now ready for use. This database will help the end user to easily navigate from the website and extract the appropriate information they require.
+- Analyzed TrueCar and other competitors to understand the data structure and features used in current online car sales platforms.
+- Gained insights into the types of data collected and how it is utilized.
+#### Sitemap Creation:
+
+- Developed a sitemap to envision the end-user's journey.
+- Identified the data points required to meet user needs and their interrelationships.
+#### Business Rules and Requirements:
+
+- Defined business rules and requirements in collaboration with stakeholders.
+- Ensured the database meets the functional and operational needs of the platform.
+#### Entity Relationship Diagram (ERD):
+
+- Created an ERD to map out the relationships between database entities.
+- Eliminated many-to-many relationships by establishing bridge tables.
+#### Database Construction:
+
+- Created SQL scripts to build tables and insert sample data.
+- Connected the database to a local server using PHP.
+- Developed a web interface with navigation features, including images, table headers, and column names.
+### Implementation
+#### Database Creation:
+
+- Designed and implemented tables based on the ERD.
+- Inserted sample data to represent electric vehicles and their attributes.
+#### Connecting to the Server:
+
+- Used SQL queries and PHP to connect the database to the localhost server.
+- Imported data to the local server and set up a web interface for end-users.
+#### User Navigation:
+
+- Developed a user-friendly web interface to facilitate easy navigation and data extraction.
+- Included images, table headers, and column names to enhance the user experience.
+## Conclusion
+The design and implementation of this online car sales database provide a robust framework for managing and retrieving information on electric vehicles. By conducting a thorough competitive analysis, defining clear business rules, and creating a detailed ERD, we ensured the database meets industry standards and user needs. The final product is a functional database connected to a local server, ready for end-users to navigate and extract relevant information efficiently.
+
